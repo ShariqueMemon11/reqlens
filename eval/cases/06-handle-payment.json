@@ -1,0 +1,30 @@
+{
+  "id": "06-handle-payment",
+  "title": "Vague 'handle' with no actor and no operations",
+  "whyThisCase": "'Handle payment processing for customer orders.' is both a vague-verb plant (handle without operations) and a missing-actor sentence for the quality regex (no human subject, no 'the system'). The planted detection target is the vague/undefined payment behavior. Missing-actor on this line is also a quality-score signal; it is listed under actorChecks as expectHasActor=false without documentedTradeoff because Phase 4 DID flag this one as missing actor (unlike the prohibition tradeoff).",
+  "mustExtract": [
+    {
+      "id": "E-handle",
+      "needle": "handle payment processing",
+      "note": "Must not be skipped as incomplete English."
+    }
+  ],
+  "ambiguities": [
+    {
+      "id": "A-handle",
+      "needle": "payment processing",
+      "note": "Payment operations are undefined (capture, refund, retry, currencies, …)."
+    }
+  ],
+  "contradictions": [],
+  "mustNotDetect": [],
+  "actorChecks": [
+    {
+      "id": "Q-handle-actor",
+      "needle": "handle payment processing",
+      "expectHasActor": false,
+      "documentedTradeoff": false,
+      "note": "HasActor is false here and Phase 4 agreed this is missing-actor. Counted as an actor check, not a tradeoff."
+    }
+  ]
+}

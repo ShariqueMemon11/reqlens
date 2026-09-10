@@ -1,0 +1,24 @@
+{
+  "id": "05-prohibition-no-actor",
+  "title": "Prohibition with no grammatical actor (documented Phase 6 tradeoff)",
+  "whyThisCase": "Do not 'fix' this and do not hide it. 'Shipped orders cannot be cancelled.' is a constraint, not a permission. Phase 4 does not FLAG it as undefined-actor, but QualityScoreCalculator.HasActor is false because there is no human subject and no 'the system'. The eval must still extract the sentence and print HasActor=false as a documented tradeoff — not as a detection miss, and not as a planted ambiguity to catch.",
+  "mustExtract": [
+    {
+      "id": "E-prohibition",
+      "needle": "shipped orders cannot be cancelled",
+      "note": "The constraint sentence must exist as a requirement unit."
+    }
+  ],
+  "ambiguities": [],
+  "contradictions": [],
+  "mustNotDetect": [],
+  "actorChecks": [
+    {
+      "id": "Q-prohibition-actor",
+      "needle": "shipped orders cannot be cancelled",
+      "expectHasActor": false,
+      "documentedTradeoff": true,
+      "note": "Expected HasActor=false. Same limitation as 'The reports should be managed properly.' See the comment on HasActor in QualityScoreCalculator."
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "11-create-edit-delete-audit",
+  "title": "Coordinated create/edit/delete plus audit-log clause",
+  "whyThisCase": "Same compound-split family as lock+notify. 'Create, edit, and delete …, with each action recorded' should not lose the audit-log obligation. After the context-copy fix, create/edit/delete keep Managers as actor; the audit-log unit is allowed to be written as the system. Needles only require the four ideas to survive extraction — they may be one unit or several.",
+  "mustExtract": [
+    {
+      "id": "E-create",
+      "needle": "create",
+      "note": "Create obligation. Short needle; this document is small enough that it is unique."
+    },
+    {
+      "id": "E-edit",
+      "needle": "edit",
+      "note": "Edit obligation."
+    },
+    {
+      "id": "E-delete",
+      "needle": "delete",
+      "note": "Delete obligation."
+    },
+    {
+      "id": "E-audit",
+      "needle": "audit log",
+      "note": "The coordinated 'with each action recorded' clause. This is the content that must not be dropped."
+    }
+  ],
+  "ambiguities": [],
+  "contradictions": [],
+  "mustNotDetect": [],
+  "actorChecks": []
+}

@@ -1,0 +1,36 @@
+{
+  "id": "08-cancel-vs-shipped",
+  "title": "Cancel-anytime vs shipped orders cannot be cancelled",
+  "whyThisCase": "The spec's contradiction example and the pair we used to smoke Phase 5. These two sentences cannot both be true without a precedence rule. The prohibition sentence is also the Phase 6 actor tradeoff; that is recorded under actorChecks so a contradiction hit is not confused with 'we found an actor.'",
+  "mustExtract": [
+    {
+      "id": "E-cancel",
+      "needle": "cancel an order at any time",
+      "note": "Left side of the conflict."
+    },
+    {
+      "id": "E-shipped",
+      "needle": "shipped orders cannot be cancelled",
+      "note": "Right side of the conflict."
+    }
+  ],
+  "ambiguities": [],
+  "contradictions": [
+    {
+      "id": "C-cancel-shipped",
+      "needleA": "cancel an order at any time",
+      "needleB": "shipped orders cannot be cancelled",
+      "note": "The detector should pair these two requirement units."
+    }
+  ],
+  "mustNotDetect": [],
+  "actorChecks": [
+    {
+      "id": "Q-prohibition-actor",
+      "needle": "shipped orders cannot be cancelled",
+      "expectHasActor": false,
+      "documentedTradeoff": true,
+      "note": "Same documented HasActor=false tradeoff as case 05. Listed here so the contradiction case stays honest."
+    }
+  ]
+}

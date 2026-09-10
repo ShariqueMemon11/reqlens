@@ -1,0 +1,6 @@
+@ReqLens.Api_HostAddress = http://localhost:5080
+
+GET {{ReqLens.Api_HostAddress}}/health
+Accept: application/json
+
+###

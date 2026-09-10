@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="ReqLens.Api/ReqLens.Api.csproj" />
+  <Project Path="ReqLens.Application/ReqLens.Application.csproj" />
+  <Project Path="ReqLens.Domain/ReqLens.Domain.csproj" />
+  <Project Path="ReqLens.Infrastructure/ReqLens.Infrastructure.csproj" />
+  <Project Path="ReqLens.Tests/ReqLens.Tests.csproj" />
+</Solution>

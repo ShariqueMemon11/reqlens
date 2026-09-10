@@ -1,0 +1,5 @@
+Order cancellation
+
+Customers can cancel an order at any time.
+Shipped orders cannot be cancelled.
+Managers can create customer accounts.

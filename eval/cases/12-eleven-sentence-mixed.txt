@@ -1,0 +1,13 @@
+Customer administration
+
+Managers can create, edit, and delete customer accounts, with each action recorded in the audit log.
+The system should support user authentication.
+Handle payment processing for customer orders.
+The support agent can view, respond to, and close customer tickets, with response times logged.
+Users can upload attachments to a ticket.
+Customers can cancel an order at any time.
+Shipped orders cannot be cancelled.
+The reports should be managed properly.
+Administrators can assign, reassign, and revoke user roles, and all role changes require a confirmation step before taking effect.
+The system shall lock a user account after 5 failed login attempts within 10 minutes, and notify the user via email.
+Users can export their data in CSV format, downloadable directly from their account settings page.

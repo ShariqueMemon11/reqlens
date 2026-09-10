@@ -1,0 +1,36 @@
+{
+  "id": "09-clean-control",
+  "title": "Clean control — no planted issues",
+  "whyThisCase": "A document with specific actors and operations and one measurable lockout rule. There are no planted ambiguities or contradictions. Extra detections still print in the live pipeline UI; this gold file just asserts there is nothing we required the harness to catch. Use it to see false-positive noise, not as a zero-tolerance test.",
+  "mustExtract": [
+    {
+      "id": "E-create",
+      "needle": "create customer accounts",
+      "note": "Baseline extraction."
+    },
+    {
+      "id": "E-lock",
+      "needle": "lock a user account",
+      "note": "Automated lock with a numeric bound."
+    }
+  ],
+  "ambiguities": [],
+  "contradictions": [],
+  "mustNotDetect": [
+    {
+      "id": "N-lock-not-actor-undefined",
+      "requirementNeedle": "lock a user account",
+      "issueNeedles": ["undefined actor", "missing actor", "no actor"],
+      "note": "Control copy of the 'the system' actor rule."
+    }
+  ],
+  "actorChecks": [
+    {
+      "id": "Q-system-lock",
+      "needle": "lock a user account",
+      "expectHasActor": true,
+      "documentedTradeoff": false,
+      "note": "HasActor true."
+    }
+  ]
+}

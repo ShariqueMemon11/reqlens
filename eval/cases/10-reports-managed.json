@@ -1,0 +1,30 @@
+{
+  "id": "10-reports-managed",
+  "title": "'The reports should be managed properly' must not be dropped",
+  "whyThisCase": "First dropped-content bug: this sentence was in the stored extracted text but never became a requirement unit (11 sentences → 20 units instead of 21). Coverage was treating it as skippable commentary. It must be extracted AND flagged as a vague verb. HasActor is false (thing-as-subject); Phase 4 flagged the verb, not actor-undefined. actorChecks records that as a documented tradeoff so it does not look like an undefined-actor miss.",
+  "mustExtract": [
+    {
+      "id": "E-reports",
+      "needle": "reports should be managed properly",
+      "note": "The sentence that used to vanish during extraction."
+    }
+  ],
+  "ambiguities": [
+    {
+      "id": "A-managed",
+      "needle": "managed properly",
+      "note": "Manage/managed without an operation list (create, export, archive, …)."
+    }
+  ],
+  "contradictions": [],
+  "mustNotDetect": [],
+  "actorChecks": [
+    {
+      "id": "Q-reports-actor",
+      "needle": "reports should be managed properly",
+      "expectHasActor": false,
+      "documentedTradeoff": true,
+      "note": "HasActor=false is the same documented quality-score limitation as the prohibition sentence. Not a planted actor-undefined issue."
+    }
+  ]
+}

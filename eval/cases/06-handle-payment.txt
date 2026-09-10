@@ -1,0 +1,5 @@
+Payments
+
+Handle payment processing for customer orders.
+Managers can create customer accounts.
+The system shall lock a user account after 5 failed login attempts within 10 minutes.

@@ -1,0 +1,22 @@
+{
+  "id": "01-vague-manage-users",
+  "title": "Vague verb without an operation list",
+  "whyThisCase": "Classic Phase 4/7 example. 'Manage users' does not say which operations are allowed. After a successful detect, resolving Create/Edit/Deactivate is what clears the quality-score vague-verb flag. The other two sentences are specific so the plant is obvious when you read the output.",
+  "mustExtract": [
+    {
+      "id": "E-manage",
+      "needle": "manage users",
+      "note": "The vague sentence must become a requirement unit, not get dropped as commentary."
+    }
+  ],
+  "ambiguities": [
+    {
+      "id": "A-manage",
+      "needle": "manage users",
+      "note": "Should flag that permitted operations (create, edit, deactivate, delete, …) are undefined."
+    }
+  ],
+  "contradictions": [],
+  "mustNotDetect": [],
+  "actorChecks": []
+}

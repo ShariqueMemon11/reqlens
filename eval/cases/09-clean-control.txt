@@ -1,0 +1,6 @@
+Well-specified control document
+
+Managers can create customer accounts.
+The support agent can view customer tickets.
+The system shall lock a user account after 5 failed login attempts within 10 minutes.
+Customers can cancel an order within 24 hours of purchase.

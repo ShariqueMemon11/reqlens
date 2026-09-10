@@ -1,0 +1,4 @@
+Tickets
+
+Users can upload attachments to a ticket.
+The support agent can view, respond to, and close customer tickets.

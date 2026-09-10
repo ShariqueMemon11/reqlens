@@ -1,0 +1,4 @@
+Account security
+
+The system shall lock a user account after 5 failed login attempts within 10 minutes, and notify the user via email.
+Managers can create customer accounts.

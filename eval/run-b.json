@@ -1,0 +1,467 @@
+{
+  "Api": "http://localhost:5080",
+  "CasesDirectory": "D:\\projects\\reqlens\\eval\\cases",
+  "GeneratedAt": "2026-09-09T12:03:06.8891903+00:00",
+  "DelayMs": 3000,
+  "Extraction": {
+    "Hit": 10,
+    "Total": 21
+  },
+  "Ambiguities": {
+    "Hit": 6,
+    "Total": 9
+  },
+  "Contradictions": {
+    "Hit": 1,
+    "Total": 2
+  },
+  "ActorRegressions": 5,
+  "ForbiddenFlagFailures": 0,
+  "CaseErrors": 0,
+  "RateLimited": false,
+  "Quoteable": true,
+  "Cases": [
+    {
+      "Id": "01-vague-manage-users",
+      "Title": "Vague verb without an operation list",
+      "Extraction": [
+        {
+          "Id": "E-manage",
+          "Hit": true,
+          "Kind": "extraction",
+          "Detail": "found in extracted text"
+        }
+      ],
+      "Ambiguities": [
+        {
+          "Id": "A-manage",
+          "Hit": true,
+          "Kind": "ambiguity",
+          "Detail": "requirement text matched a detected issue"
+        }
+      ],
+      "Contradictions": [],
+      "MustNotDetect": [],
+      "Actor": [],
+      "Error": null
+    },
+    {
+      "Id": "02-support-authentication",
+      "Title": "Vague \u0027support\u0027 with \u0027the system\u0027 as actor",
+      "Extraction": [
+        {
+          "Id": "E-support",
+          "Hit": true,
+          "Kind": "extraction",
+          "Detail": "found in extracted text"
+        }
+      ],
+      "Ambiguities": [
+        {
+          "Id": "A-support",
+          "Hit": true,
+          "Kind": "ambiguity",
+          "Detail": "requirement text matched a detected issue"
+        }
+      ],
+      "Contradictions": [],
+      "MustNotDetect": [
+        {
+          "Id": "N-not-missing-actor",
+          "Hit": true,
+          "Kind": "must-not-detect",
+          "Detail": "no forbidden issue text on this requirement"
+        }
+      ],
+      "Actor": [
+        {
+          "Id": "Q-system-support",
+          "Hit": true,
+          "Kind": "actor",
+          "Detail": "HasActor=True, expected True"
+        }
+      ],
+      "Error": null
+    },
+    {
+      "Id": "03-compound-lock-notify",
+      "Title": "Compound sentence: lock AND notify (dropped-content regression)",
+      "Extraction": [
+        {
+          "Id": "E-lock",
+          "Hit": false,
+          "Kind": "extraction",
+          "Detail": "not present in any extracted unit"
+        },
+        {
+          "Id": "E-notify",
+          "Hit": false,
+          "Kind": "extraction",
+          "Detail": "not present in any extracted unit"
+        }
+      ],
+      "Ambiguities": [],
+      "Contradictions": [],
+      "MustNotDetect": [],
+      "Actor": [
+        {
+          "Id": "Q-system-lock",
+          "Hit": false,
+          "Kind": "actor",
+          "Detail": "requirement not extracted, cannot score actor"
+        }
+      ],
+      "Error": null
+    },
+    {
+      "Id": "04-system-actor-lock",
+      "Title": "\u0027The system\u0027 is a valid automated actor",
+      "Extraction": [
+        {
+          "Id": "E-lock",
+          "Hit": false,
+          "Kind": "extraction",
+          "Detail": "not present in any extracted unit"
+        }
+      ],
+      "Ambiguities": [],
+      "Contradictions": [],
+      "MustNotDetect": [
+        {
+          "Id": "N-not-actor-undefined",
+          "Hit": true,
+          "Kind": "must-not-detect",
+          "Detail": "no forbidden issue text on this requirement"
+        }
+      ],
+      "Actor": [
+        {
+          "Id": "Q-system-lock",
+          "Hit": false,
+          "Kind": "actor",
+          "Detail": "requirement not extracted, cannot score actor"
+        }
+      ],
+      "Error": null
+    },
+    {
+      "Id": "05-prohibition-no-actor",
+      "Title": "Prohibition with no grammatical actor (documented Phase 6 tradeoff)",
+      "Extraction": [
+        {
+          "Id": "E-prohibition",
+          "Hit": false,
+          "Kind": "extraction",
+          "Detail": "not present in any extracted unit"
+        }
+      ],
+      "Ambiguities": [],
+      "Contradictions": [],
+      "MustNotDetect": [],
+      "Actor": [
+        {
+          "Id": "Q-prohibition-actor",
+          "Hit": false,
+          "Kind": "actor-tradeoff",
+          "Detail": "requirement not extracted, cannot score actor"
+        }
+      ],
+      "Error": null
+    },
+    {
+      "Id": "06-handle-payment",
+      "Title": "Vague \u0027handle\u0027 with no actor and no operations",
+      "Extraction": [
+        {
+          "Id": "E-handle",
+          "Hit": false,
+          "Kind": "extraction",
+          "Detail": "not present in any extracted unit"
+        }
+      ],
+      "Ambiguities": [
+        {
+          "Id": "A-handle",
+          "Hit": true,
+          "Kind": "ambiguity",
+          "Detail": "requirement text matched a detected issue"
+        }
+      ],
+      "Contradictions": [],
+      "MustNotDetect": [],
+      "Actor": [
+        {
+          "Id": "Q-handle-actor",
+          "Hit": false,
+          "Kind": "actor",
+          "Detail": "requirement not extracted, cannot score actor"
+        }
+      ],
+      "Error": null
+    },
+    {
+      "Id": "07-upload-constraints",
+      "Title": "Upload without file size, type, or count",
+      "Extraction": [
+        {
+          "Id": "E-upload",
+          "Hit": true,
+          "Kind": "extraction",
+          "Detail": "found in extracted text"
+        }
+      ],
+      "Ambiguities": [
+        {
+          "Id": "A-upload",
+          "Hit": true,
+          "Kind": "ambiguity",
+          "Detail": "requirement text matched a detected issue"
+        }
+      ],
+      "Contradictions": [],
+      "MustNotDetect": [],
+      "Actor": [
+        {
+          "Id": "Q-upload-actor",
+          "Hit": true,
+          "Kind": "actor",
+          "Detail": "HasActor=True, expected True"
+        }
+      ],
+      "Error": null
+    },
+    {
+      "Id": "08-cancel-vs-shipped",
+      "Title": "Cancel-anytime vs shipped orders cannot be cancelled",
+      "Extraction": [
+        {
+          "Id": "E-cancel",
+          "Hit": false,
+          "Kind": "extraction",
+          "Detail": "not present in any extracted unit"
+        },
+        {
+          "Id": "E-shipped",
+          "Hit": true,
+          "Kind": "extraction",
+          "Detail": "found in extracted text"
+        }
+      ],
+      "Ambiguities": [],
+      "Contradictions": [
+        {
+          "Id": "C-cancel-shipped",
+          "Hit": false,
+          "Kind": "contradiction",
+          "Detail": "no detected pair covers both needles"
+        }
+      ],
+      "MustNotDetect": [],
+      "Actor": [
+        {
+          "Id": "Q-prohibition-actor",
+          "Hit": true,
+          "Kind": "actor-tradeoff",
+          "Detail": "HasActor=false, as documented for prohibition/constraint sentences with no grammatical actor. Not counted as a detection miss."
+        }
+      ],
+      "Error": null
+    },
+    {
+      "Id": "09-clean-control",
+      "Title": "Clean control \u2014 no planted issues",
+      "Extraction": [
+        {
+          "Id": "E-create",
+          "Hit": true,
+          "Kind": "extraction",
+          "Detail": "found in extracted text"
+        },
+        {
+          "Id": "E-lock",
+          "Hit": false,
+          "Kind": "extraction",
+          "Detail": "not present in any extracted unit"
+        }
+      ],
+      "Ambiguities": [],
+      "Contradictions": [],
+      "MustNotDetect": [
+        {
+          "Id": "N-lock-not-actor-undefined",
+          "Hit": true,
+          "Kind": "must-not-detect",
+          "Detail": "no forbidden issue text on this requirement"
+        }
+      ],
+      "Actor": [
+        {
+          "Id": "Q-system-lock",
+          "Hit": false,
+          "Kind": "actor",
+          "Detail": "requirement not extracted, cannot score actor"
+        }
+      ],
+      "Error": null
+    },
+    {
+      "Id": "10-reports-managed",
+      "Title": "\u0027The reports should be managed properly\u0027 must not be dropped",
+      "Extraction": [
+        {
+          "Id": "E-reports",
+          "Hit": false,
+          "Kind": "extraction",
+          "Detail": "not present in any extracted unit"
+        }
+      ],
+      "Ambiguities": [
+        {
+          "Id": "A-managed",
+          "Hit": false,
+          "Kind": "ambiguity",
+          "Detail": "no detected issue on a matching requirement"
+        }
+      ],
+      "Contradictions": [],
+      "MustNotDetect": [],
+      "Actor": [
+        {
+          "Id": "Q-reports-actor",
+          "Hit": false,
+          "Kind": "actor-tradeoff",
+          "Detail": "requirement not extracted, cannot score actor"
+        }
+      ],
+      "Error": null
+    },
+    {
+      "Id": "11-create-edit-delete-audit",
+      "Title": "Coordinated create/edit/delete plus audit-log clause",
+      "Extraction": [
+        {
+          "Id": "E-create",
+          "Hit": true,
+          "Kind": "extraction",
+          "Detail": "found in extracted text"
+        },
+        {
+          "Id": "E-edit",
+          "Hit": true,
+          "Kind": "extraction",
+          "Detail": "found in extracted text"
+        },
+        {
+          "Id": "E-delete",
+          "Hit": true,
+          "Kind": "extraction",
+          "Detail": "found in extracted text"
+        },
+        {
+          "Id": "E-audit",
+          "Hit": true,
+          "Kind": "extraction",
+          "Detail": "found in extracted text"
+        }
+      ],
+      "Ambiguities": [],
+      "Contradictions": [],
+      "MustNotDetect": [],
+      "Actor": [],
+      "Error": null
+    },
+    {
+      "Id": "12-eleven-sentence-mixed",
+      "Title": "The 11-sentence document used throughout extraction and scoring tuning",
+      "Extraction": [
+        {
+          "Id": "E-notify",
+          "Hit": false,
+          "Kind": "extraction",
+          "Detail": "not present in any extracted unit"
+        },
+        {
+          "Id": "E-lock",
+          "Hit": false,
+          "Kind": "extraction",
+          "Detail": "not present in any extracted unit"
+        },
+        {
+          "Id": "E-reports",
+          "Hit": false,
+          "Kind": "extraction",
+          "Detail": "not present in any extracted unit"
+        },
+        {
+          "Id": "E-audit",
+          "Hit": true,
+          "Kind": "extraction",
+          "Detail": "found in extracted text"
+        }
+      ],
+      "Ambiguities": [
+        {
+          "Id": "A-support",
+          "Hit": false,
+          "Kind": "ambiguity",
+          "Detail": "no detected issue on a matching requirement"
+        },
+        {
+          "Id": "A-handle",
+          "Hit": true,
+          "Kind": "ambiguity",
+          "Detail": "requirement text matched a detected issue"
+        },
+        {
+          "Id": "A-upload",
+          "Hit": true,
+          "Kind": "ambiguity",
+          "Detail": "requirement text matched a detected issue"
+        },
+        {
+          "Id": "A-managed",
+          "Hit": false,
+          "Kind": "ambiguity",
+          "Detail": "no detected issue on a matching requirement"
+        }
+      ],
+      "Contradictions": [
+        {
+          "Id": "C-cancel-shipped",
+          "Hit": true,
+          "Kind": "contradiction",
+          "Detail": "detected pair covers both needles"
+        }
+      ],
+      "MustNotDetect": [
+        {
+          "Id": "N-lock-not-actor-undefined",
+          "Hit": true,
+          "Kind": "must-not-detect",
+          "Detail": "no forbidden issue text on this requirement"
+        }
+      ],
+      "Actor": [
+        {
+          "Id": "Q-system-lock",
+          "Hit": false,
+          "Kind": "actor",
+          "Detail": "requirement not extracted, cannot score actor"
+        },
+        {
+          "Id": "Q-prohibition",
+          "Hit": true,
+          "Kind": "actor-tradeoff",
+          "Detail": "HasActor=false, as documented for prohibition/constraint sentences with no grammatical actor. Not counted as a detection miss."
+        },
+        {
+          "Id": "Q-reports",
+          "Hit": false,
+          "Kind": "actor-tradeoff",
+          "Detail": "requirement not extracted, cannot score actor"
+        }
+      ],
+      "Error": null
+    }
+  ]
+}

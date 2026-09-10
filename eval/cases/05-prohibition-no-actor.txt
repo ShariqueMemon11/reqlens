@@ -1,0 +1,4 @@
+Shipping rules
+
+Shipped orders cannot be cancelled.
+Managers can create, edit, and delete customer accounts.

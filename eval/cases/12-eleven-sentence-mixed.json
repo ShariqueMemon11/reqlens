@@ -1,0 +1,88 @@
+{
+  "id": "12-eleven-sentence-mixed",
+  "title": "The 11-sentence document used throughout extraction and scoring tuning",
+  "whyThisCase": "Integration case. Read the .txt first, then this file. It combines: compound lock+notify (dropped-content), reports-managed (dropped sentence), cancel vs shipped (contradiction), upload without constraints, vague support/handle/managed, the-system lock actor, and the prohibition actor tradeoff. Needles are longer than in the focused cases so they stay unique in a bigger document.",
+  "mustExtract": [
+    {
+      "id": "E-notify",
+      "needle": "notify the user via email",
+      "note": "Compound-sentence regression: notify half must survive."
+    },
+    {
+      "id": "E-lock",
+      "needle": "lock a user account",
+      "note": "Lock half of the same compound sentence."
+    },
+    {
+      "id": "E-reports",
+      "needle": "reports should be managed properly",
+      "note": "The sentence that was previously omitted from requirement units."
+    },
+    {
+      "id": "E-audit",
+      "needle": "audit log",
+      "note": "Coordinated audit-log clause on create/edit/delete."
+    }
+  ],
+  "ambiguities": [
+    {
+      "id": "A-support",
+      "needle": "support user authentication",
+      "note": "Vague 'support' without operations."
+    },
+    {
+      "id": "A-handle",
+      "needle": "payment processing",
+      "note": "Vague 'handle payment processing'."
+    },
+    {
+      "id": "A-upload",
+      "needle": "upload attachments",
+      "note": "Missing file size / type / count."
+    },
+    {
+      "id": "A-managed",
+      "needle": "managed properly",
+      "note": "Vague 'managed' without operations."
+    }
+  ],
+  "contradictions": [
+    {
+      "id": "C-cancel-shipped",
+      "needleA": "cancel an order at any time",
+      "needleB": "shipped orders cannot be cancelled",
+      "note": "The same conflict as case 08, inside the mixed document."
+    }
+  ],
+  "mustNotDetect": [
+    {
+      "id": "N-lock-not-actor-undefined",
+      "requirementNeedle": "lock a user account",
+      "issueNeedles": ["undefined actor", "missing actor", "no actor"],
+      "note": "Automated lock uses 'the system'."
+    }
+  ],
+  "actorChecks": [
+    {
+      "id": "Q-system-lock",
+      "needle": "lock a user account",
+      "expectHasActor": true,
+      "documentedTradeoff": false,
+      "note": "HasActor true for the automated lock unit."
+    },
+    {
+      "id": "Q-prohibition",
+      "needle": "shipped orders cannot be cancelled",
+      "expectHasActor": false,
+      "documentedTradeoff": true,
+      "note": "Documented Phase 6 tradeoff — print honestly, do not count as a miss."
+    },
+    {
+      "id": "Q-reports",
+      "needle": "reports should be managed properly",
+      "expectHasActor": false,
+      "documentedTradeoff": true,
+      "note": "Thing-as-subject: HasActor=false, Phase 4 flagged the verb not the actor."
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+Authentication
+
+The system should support user authentication.
+Managers can create, edit, and delete customer accounts.

@@ -1,0 +1,31 @@
+{
+  "id": "04-system-actor-lock",
+  "title": "'The system' is a valid automated actor",
+  "whyThisCase": "Regression for the actor-rule fix. Automated behavior (lock after N failures) correctly uses 'the system' as the actor. Quality scoring must treat this as HasActor=true. Ambiguity detection must NOT flag it as actor-undefined. A numeric bound is present, so this is also not a missing-constraint plant.",
+  "mustExtract": [
+    {
+      "id": "E-lock",
+      "needle": "lock a user account",
+      "note": "The automated lock requirement must be extracted."
+    }
+  ],
+  "ambiguities": [],
+  "contradictions": [],
+  "mustNotDetect": [
+    {
+      "id": "N-not-actor-undefined",
+      "requirementNeedle": "lock a user account",
+      "issueNeedles": ["undefined actor", "missing actor", "no actor", "who is allowed", "who can"],
+      "note": "Do not flag this as actor-undefined. 'The system' is the intended actor for lockout."
+    }
+  ],
+  "actorChecks": [
+    {
+      "id": "Q-system-lock",
+      "needle": "lock a user account",
+      "expectHasActor": true,
+      "documentedTradeoff": false,
+      "note": "HasActor must be true on the extracted lock unit."
+    }
+  ]
+}

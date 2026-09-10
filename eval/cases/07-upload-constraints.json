@@ -1,0 +1,30 @@
+{
+  "id": "07-upload-constraints",
+  "title": "Upload without file size, type, or count",
+  "whyThisCase": "Regression for the 'don't flag implementation detail' over-correction. Missing max file size / allowed types / max count on an upload requirement is still an ambiguity. Exact error-message wording is not. A specific support-agent sentence is included so the plant is isolated.",
+  "mustExtract": [
+    {
+      "id": "E-upload",
+      "needle": "upload attachments",
+      "note": "The unbounded upload sentence must be extracted."
+    }
+  ],
+  "ambiguities": [
+    {
+      "id": "A-upload",
+      "needle": "upload attachments",
+      "note": "Should ask about max file size, allowed types, and/or max file count."
+    }
+  ],
+  "contradictions": [],
+  "mustNotDetect": [],
+  "actorChecks": [
+    {
+      "id": "Q-upload-actor",
+      "needle": "upload attachments",
+      "expectHasActor": true,
+      "documentedTradeoff": false,
+      "note": "'Users can' is a valid human actor."
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": "02-support-authentication",
+  "title": "Vague 'support' with 'the system' as actor",
+  "whyThisCase": "'Support user authentication' is a vague-verb plant (support without an operation list). 'The system' is a valid automated actor, so this is NOT an undefined-actor plant — only the missing operations should be flagged.",
+  "mustExtract": [
+    {
+      "id": "E-support",
+      "needle": "support user authentication",
+      "note": "Must be extracted so the vague-verb issue has a unit to attach to."
+    }
+  ],
+  "ambiguities": [
+    {
+      "id": "A-support",
+      "needle": "support user authentication",
+      "note": "Authentication operations are undefined (login, logout, password reset, MFA, …)."
+    }
+  ],
+  "contradictions": [],
+  "mustNotDetect": [
+    {
+      "id": "N-not-missing-actor",
+      "requirementNeedle": "support user authentication",
+      "issueNeedles": ["undefined actor", "missing actor", "no actor", "who is allowed"],
+      "note": "'The system' is the actor. Do not flag this sentence as actor-undefined."
+    }
+  ],
+  "actorChecks": [
+    {
+      "id": "Q-system-support",
+      "needle": "support user authentication",
+      "expectHasActor": true,
+      "documentedTradeoff": false,
+      "note": "QualityScoreCalculator.HasActor must be true because of 'the system'."
+    }
+  ]
+}

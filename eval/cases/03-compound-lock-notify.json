@@ -1,0 +1,29 @@
+{
+  "id": "03-compound-lock-notify",
+  "title": "Compound sentence: lock AND notify (dropped-content regression)",
+  "whyThisCase": "Real bug from this build. Sentence 10 of the 11-sentence document is one sentence with two obligations joined by ', and'. Early coverage only checked 'did this source line produce at least one unit,' so the lock half survived and the notify-via-email obligation vanished. Both needles must appear in extracted units (either as two units or one unit that still contains both clauses). This is extraction recall, not an ambiguity plant.",
+  "mustExtract": [
+    {
+      "id": "E-lock",
+      "needle": "lock a user account",
+      "note": "First coordinated obligation."
+    },
+    {
+      "id": "E-notify",
+      "needle": "notify the user via email",
+      "note": "Second coordinated obligation — this is the half that was dropped."
+    }
+  ],
+  "ambiguities": [],
+  "contradictions": [],
+  "mustNotDetect": [],
+  "actorChecks": [
+    {
+      "id": "Q-system-lock",
+      "needle": "lock a user account",
+      "expectHasActor": true,
+      "documentedTradeoff": false,
+      "note": "Automated lock is a valid 'the system' actor."
+    }
+  ]
+}

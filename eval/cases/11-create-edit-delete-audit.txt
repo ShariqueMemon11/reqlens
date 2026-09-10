@@ -1,0 +1,4 @@
+Account administration
+
+Managers can create, edit, and delete customer accounts, with each action recorded in the audit log.
+The support agent can view customer tickets.
